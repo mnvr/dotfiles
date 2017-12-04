@@ -1,5 +1,6 @@
 (setq make-backup-files nil)
 (global-font-lock-mode 0)
+(menu-bar-mode 0)
 
 (setq-default require-final-newline t)
 
