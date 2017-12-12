@@ -4,4 +4,4 @@
 	whitespace = error
 [color]
 	ui = never
-
+	diff = auto
