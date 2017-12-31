@@ -9,5 +9,10 @@
 (setq indent-line-function #'tab-to-tab-stop)
 (setq-default c-basic-offset 4)
 
+(defun pbcopy ()
+    (interactive)
+    (shell-command-on-region (mark) (point) "pbcopy"))
+(global-set-key (kbd "C-M-v") 'pbcopy)
+
 (custom-set-variables
  '(sort-fold-case t))
