@@ -1,7 +1,9 @@
 [user]
 	email = mnvrth@gmail.com
 [apply]
-	whitespace = error
+	whitespace = error-all
 [color]
 	ui = never
 	diff = auto
+[alias]
+	amend = !git add -p && git commit --amend --reset-author

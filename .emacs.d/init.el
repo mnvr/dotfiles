@@ -5,8 +5,6 @@
 (setq-default require-final-newline t)
 
 (setq-default indent-tabs-mode nil)
-(setq tab-stop-list (number-sequence 4 80 4))
-(setq indent-line-function #'tab-to-tab-stop)
 (setq-default c-basic-offset 4)
 
 (defun pbcopy ()
