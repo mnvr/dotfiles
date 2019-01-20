@@ -7,5 +7,5 @@ export PATH=$PATH:$HOME/.local/bin
 
 # git clone https://github.com/sschober/kqwait && cd kqwait && make
 swift-watch () {
-    while ~/Downloads/kqwait/kqwait $1; do swift $1; done
+    while true; do swift $1; ~/Downloads/kqwait/kqwait $1; done
 }
