@@ -18,7 +18,7 @@
     (newline)
     (insert (make-string (- indent 4) ?\s))))
 
-(global-set-key (kbd "C-RET") #'indent-relative-4less)
+(global-set-key (kbd "C-j") #'indent-relative-4less)
 
 (defun pbcopy ()
     (interactive)
