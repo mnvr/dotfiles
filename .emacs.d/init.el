@@ -11,12 +11,14 @@
 (setq-default tab-stop-list (number-sequence 4 200 4))
 (setq-default indent-line-function 'tab-to-tab-stop)
 
-(defun indent-relative-4less ()
-  "Newline and indent 4 spaces less than previous line."
-  (interactive)
-  (let ((indent (save-excursion (back-to-indentation) (current-column))))
+(defun indent-relative-4less (&optional arg)
+  "Newline and indent 4 spaces less than previous line. With C-u,
+indent to same level as previous line."
+  (interactive "P")
+  (let* ((offset (if arg 0 -4))
+         (indent (save-excursion (back-to-indentation) (current-column))))
     (newline)
-    (insert (make-string (- indent 4) ?\s))))
+    (insert (make-string (+ indent offset) ?\s))))
 
 (global-set-key (kbd "C-j") #'indent-relative-4less)
 
