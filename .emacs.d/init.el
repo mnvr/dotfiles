@@ -20,6 +20,10 @@
 (setq-default tab-stop-list (number-sequence 4 200 4))
 (setq-default indent-line-function 'tab-to-tab-stop)
 
+;; It inserts a indent of 4-spaces e.g. in COMMIT_EDITMSG when I press RET
+;; Disable it
+(electric-indent-mode 0)
+
 (defun indent-relative-4less (&optional arg)
   "Newline and indent to same indentation as than previous line. With C-u,
 indent one level less."
@@ -69,4 +73,14 @@ indent one level less."
 (global-set-key (kbd "C-M-v") 'pbcopy)
 
 (custom-set-variables
- '(sort-fold-case t))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(sort-fold-case t t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
