@@ -72,6 +72,8 @@ indent one level less."
 
 (global-set-key (kbd "C-M-v") 'pbcopy)
 
+(define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
