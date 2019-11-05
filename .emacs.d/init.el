@@ -16,7 +16,7 @@
 
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset 4)
-(setq-default tab-width 4)
+;; (setq-default tab-width 4)
 (setq-default tab-stop-list (number-sequence 4 200 4))
 (setq-default indent-line-function 'tab-to-tab-stop)
 
