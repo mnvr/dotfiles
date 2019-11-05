@@ -24,48 +24,6 @@
 ;; Disable it
 (electric-indent-mode 0)
 
-(defun indent-relative-4less (&optional arg)
-  "Newline and indent to same indentation as than previous line. With C-u,
-indent one level less."
-  (interactive "P")
-  (let* ((offset (if arg -4 0))
-         (indent (save-excursion (back-to-indentation) (current-column))))
-    (newline)
-    (insert (make-string (+ indent offset) ?\s))))
-
-(global-set-key (kbd "C-j") #'indent-relative-4less)
-
-(defun mn-close-bracket-and-indent ()
-  "Reduce indentation and insert a closing bracket."
-  (interactive)
-  (let ((indent (save-excursion (back-to-indentation) (current-column))))
-    (newline)
-    (insert (make-string (- indent 4) ?\s))
-    (insert "}")))
-
-(global-set-key (kbd "C-c }") #'mn-close-bracket-and-indent)
-
-(defun mn-add-braces ()
-  "Fancy insert {} and indent."
-  (interactive)
-  (let ((indent (save-excursion (back-to-indentation) (current-column))))
-    (insert "{")
-    (newline)
-    (insert (make-string (+ indent 4) ?\s))
-    (newline)
-    (insert (make-string indent ?\s))
-    (insert "}")
-    (move-end-of-line 0)))
-
-(global-set-key (kbd "C-c {") #'mn-add-braces)
-
-(defun mn-eval-swift-buffer ()
-  (interactive)
-  (save-buffer)
-  (shell-command (concat "swift " (buffer-file-name (current-buffer)))))
-
-(global-set-key (kbd "C-c v") #'mn-eval-swift-buffer)
-
 (defun pbcopy ()
     (interactive)
     (shell-command-on-region (mark) (point) "pbcopy"))
