@@ -20,6 +20,8 @@
 (setq-default tab-stop-list (number-sequence 4 200 4))
 (setq-default indent-line-function 'tab-to-tab-stop)
 
+(electric-pair-mode 1)
+
 (defun pbcopy ()
     (interactive)
     (shell-command-on-region (mark) (point) "pbcopy"))
