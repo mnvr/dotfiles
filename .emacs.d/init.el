@@ -28,13 +28,29 @@
 
 (global-set-key (kbd "C-M-v") 'pbcopy)
 
+(defun mn-eval-swift-buffer ()
+  (interactive)
+  (save-buffer)
+  (shell-command (concat "swift " (buffer-file-name (current-buffer)))))
+
+;; (global-set-key (kbd "C-c v") #'mn-eval-swift-buffer)
+
+(defun mn-eval-go-buffer ()
+  (interactive)
+  (save-buffer)
+  (shell-command "go run ."))
+
+(add-hook
+ 'go-mode-hook
+ (lambda () (define-key go-mode-map (kbd "C-c v") #'mn-eval-go-buffer)))
+
+(add-hook 'before-save-hook #'gofmt-before-save)
+
 (define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
 
 ;; Electric indent mode causes unwanted behaviour when writing commit
 ;; messages in Fundamental mode (the default), so switch to text mode.
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . text-mode))
-
-(add-hook 'before-save-hook #'gofmt-before-save)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
