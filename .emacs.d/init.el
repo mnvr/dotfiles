@@ -52,6 +52,11 @@
 ;; messages in Fundamental mode (the default), so switch to text mode.
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG" . text-mode))
 
+;; With Emacs 27, electric-indent seems to have been turned on for
+;; text-mode too, disable it to prevent newline from indenting after
+;; we type the commit message title.
+(add-hook 'text-mode-hook (lambda () (electric-indent-local-mode -1)))
+
 ;; M-x package-install multiple-cursors
 ;; https://github.com/magnars/multiple-cursors.el
 (require 'multiple-cursors)
