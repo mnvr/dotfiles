@@ -57,15 +57,6 @@
 ;; we type the commit message title.
 (add-hook 'text-mode-hook (lambda () (electric-indent-local-mode -1)))
 
-;; M-x package-install multiple-cursors
-;; https://github.com/magnars/multiple-cursors.el
-(require 'multiple-cursors)
-
-(global-set-key (kbd "C-c C-a") 'mc/edit-lines)
-(global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-p") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-m") 'mc/mark-all-like-this)
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
