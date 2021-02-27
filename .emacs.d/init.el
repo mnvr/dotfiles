@@ -16,7 +16,6 @@
 
 (setq-default indent-tabs-mode nil)
 (setq-default c-basic-offset 4)
-;; (setq-default tab-width 4)
 (setq-default tab-stop-list (number-sequence 4 200 4))
 (setq-default indent-line-function 'tab-to-tab-stop)
 
@@ -27,26 +26,6 @@
     (shell-command-on-region (mark) (point) "pbcopy"))
 
 (global-set-key (kbd "C-M-v") 'pbcopy)
-
-(defun mn-eval-swift-buffer ()
-  (interactive)
-  (save-buffer)
-  (shell-command (concat "swift " (buffer-file-name (current-buffer)))))
-
-;; (global-set-key (kbd "C-c v") #'mn-eval-swift-buffer)
-
-(defun mn-eval-go-buffer ()
-  (interactive)
-  (save-buffer)
-  (shell-command "go run ."))
-
-(add-hook
- 'go-mode-hook
- (lambda () (define-key go-mode-map (kbd "C-c v") #'mn-eval-go-buffer)))
-
-(add-hook 'before-save-hook #'gofmt-before-save)
-
-(define-key lisp-mode-shared-map (kbd "RET") 'reindent-then-newline-and-indent)
 
 ;; Electric indent mode causes unwanted behaviour when writing commit
 ;; messages in Fundamental mode (the default), so switch to text mode.
