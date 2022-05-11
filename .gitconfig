@@ -1,0 +1,9 @@
+[user]
+	name = Manav
+	email = manav@ente.io
+[init]
+	defaultBranch = main
+[submodule]
+	recurse = true
+[alias]
+	amend = commit --amend --reset-author
