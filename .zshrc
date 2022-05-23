@@ -9,3 +9,4 @@ alias code='open -b com.microsoft.vscode'
 
 export PATH="$PATH:$HOME/Downloads/flutter/bin"
 export PATH="$PATH":"$HOME/Downloads/flutter/.pub-cache/bin"
+export PATH="$PATH:$HOME/Code/dotfiles/bin"
