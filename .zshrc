@@ -25,7 +25,7 @@ export SAVEHIST=1000000
 # Do not save duplicates (they'll still go into history list)
 setopt HIST_SAVE_NO_DUPS
 # Write to history file immediately instead of shell exit
-setopt INC_APPEND_HISTORY_TIME
+setopt INC_APPEND_HISTORY
 
 # By default, history aliases to `fc -l 16 -1`
 # Change it to show all the history stored.
