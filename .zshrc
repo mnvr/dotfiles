@@ -34,3 +34,28 @@ alias history="fc -l 1"
 # brew install fzf
 # /opt/homebrew/opt/fzf/install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# if [[ "$(defaults read -g AppleInterfaceStyle 2&>/dev/null)" != "Dark" ]]; then
+#     export MCFLY_LIGHT=TRUE
+# fi
+
+# eval "$(mcfly init zsh)"
+# export MCFLY_FUZZY=true
+
+# Immediately execute the command on ctrl-x
+# https://github.com/junegunn/fzf/pull/1492#issuecomment-461670530
+
+fzf_history() {
+  local selected
+  IFS=$'\n' selected=($(fc -lnr 1 | fzf --expect=ctrl-x --no-sort --height=40% --query="$BUFFER"))
+  if [[ "$selected" ]]; then
+    LBUFFER="$selected"
+    if [[ ${#selected[@]} -eq 2 ]]; then
+      LBUFFER="${selected[2]}"
+      zle accept-line
+    fi
+  fi
+  zle reset-prompt
+}
+zle -N fzf-history fzf_history
+bindkey "^R" fzf-history
