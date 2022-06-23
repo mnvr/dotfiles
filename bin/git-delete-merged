@@ -2,12 +2,13 @@
 
 # Delete all remote branches that have been merged into master.
 # Delete them both locally and on remote.
+# Assumes mainline is called master or main.
 
 set -o errexit
 
-git branch --remote | awk '! /master/ {$1=$1;print}' | \
+git branch --remote | awk '!/master|main/ {$1=$1;print}' | \
   while read branch; do
-    if test "$(git branch --contains $branch | grep master | wc -l)" -eq 1 ; then
+    if test "$(git branch --contains $branch | grep 'master\|main' | wc -l)" -eq 1 ; then
      echo "deleting $(git rev-parse $branch) $branch"
      git push origin --delete $(basename $branch)
    fi;
