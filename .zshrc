@@ -13,9 +13,16 @@ export PATH="$PATH:$HOME/Code/dotfiles/bin"
 export PATH="$PATH:$HOME/Code/bin"
 
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
-export PGDATA=/opt/homebrew/var/postgresql@12
 
-# History settings
+export PGDATA=/opt/homebrew/var/postgresql@12
+export PGHOST=localhost
+export PGUSER=postgres
+export PGDATABASE=postgres
+
+# ente/museum
+export DB_USER=postgres
+
+# History settings --
 
 # See `man zshparam` for details about these variables
 export HISTSIZE=1000000
@@ -59,3 +66,6 @@ fzf_history() {
 }
 zle -N fzf-history fzf_history
 bindkey "^R" fzf-history
+
+# Scaleway CLI autocomplete initialization.
+eval "$(scw autocomplete script shell=zsh)"
