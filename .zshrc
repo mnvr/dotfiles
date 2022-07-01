@@ -7,6 +7,10 @@ autoload -Uz compinit && compinit
 
 alias code='open -b com.microsoft.vscode'
 
+function git-amend () {
+    git add -p && git commit --amend --reset-author
+}
+
 export PATH="$PATH:$HOME/Code/flutter/bin"
 export PATH="$PATH":"$HOME/Code/flutter/.pub-cache/bin"
 export PATH="$PATH:$HOME/Code/dotfiles/bin"
@@ -31,6 +35,8 @@ export SAVEHIST=1000000
 # See `man zshoptions` for details about these options
 # Do not save duplicates (they'll still go into history list)
 setopt HIST_SAVE_NO_DUPS
+# But also don't put them into the history list
+setopt HIST_IGNORE_ALL_DUPS
 # Write to history file immediately instead of shell exit
 setopt INC_APPEND_HISTORY
 
