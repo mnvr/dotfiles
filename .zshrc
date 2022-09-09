@@ -39,6 +39,8 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 # Write to history file immediately instead of shell exit
 setopt INC_APPEND_HISTORY
+# Do not add lines that begin with a space to history
+setopt HIST_IGNORE_SPACE
 
 # By default, history aliases to `fc -l 16 -1`
 # Change it to show all the history stored.
@@ -60,7 +62,7 @@ alias history="fc -l 1"
 
 fzf_history() {
   local selected
-  IFS=$'\n' selected=($(fc -lnr 1 | fzf --expect=ctrl-x --no-sort --height=40% --query="$BUFFER"))
+  IFS=$'\n' selected=($(fc -lnr 1 | fzf --exact --expect=ctrl-x --no-sort --height=40% --query="$BUFFER"))
   if [[ "$selected" ]]; then
     LBUFFER="$selected"
     if [[ ${#selected[@]} -eq 2 ]]; then
@@ -75,3 +77,9 @@ bindkey "^R" fzf-history
 
 # Scaleway CLI autocomplete initialization.
 eval "$(scw autocomplete script shell=zsh)"
+
+# Assume the argument to be an epoch microsecond, and print the corresponding
+# human readable date.
+function epochus() {
+    date -ur "$(echo "$1 / 1000000" | bc)"
+}
