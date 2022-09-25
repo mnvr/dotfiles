@@ -78,8 +78,8 @@ bindkey "^R" fzf-history
 # Scaleway CLI autocomplete initialization.
 eval "$(scw autocomplete script shell=zsh)"
 
-# Assume the argument to be an epoch microsecond, and print the corresponding
-# human readable date.
-function epochus() {
+# Assume the argument to be an epoch microsecond, and print the
+# corresponding human readable date.
+function epoch() {
     date -ur "$(echo "$1 / 1000000" | bc)"
 }
