@@ -6,6 +6,13 @@ PROMPT="%1~$ "
 autoload -Uz compinit && compinit
 
 alias code='open -b com.microsoft.vscode'
+alias g=git
+alias gs='git status'
+alias gcb='git checkout -b'
+alias gc='git add -p && git commit'
+alias gca='git add -p && git commit --amend'
+
+alias logcli-login='source ~/Code/bin/logcli-login-env'
 
 function git-amend () {
     git add -p && git commit --amend --reset-author
