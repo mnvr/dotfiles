@@ -6,4 +6,4 @@
 [submodule]
 	recurse = true
 [alias]
-	amend = commit --amend --reset-author
+	#amend = commit --amend --reset-author

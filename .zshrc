@@ -6,8 +6,15 @@ PROMPT="%1~$ "
 autoload -Uz compinit && compinit
 
 alias code='open -b com.microsoft.vscode'
+
+alias mr='make-refresh'
+
 alias g=git
+alias gp='git pull'
+alias gl='git log'
 alias gs='git status'
+alias gd='git diff'
+alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gc='git add -p && git commit'
 alias gca='git add -p && git commit --amend'
@@ -57,13 +64,6 @@ alias history="fc -l 1"
 # /opt/homebrew/opt/fzf/install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# if [[ "$(defaults read -g AppleInterfaceStyle 2&>/dev/null)" != "Dark" ]]; then
-#     export MCFLY_LIGHT=TRUE
-# fi
-
-# eval "$(mcfly init zsh)"
-# export MCFLY_FUZZY=true
-
 # Immediately execute the command on ctrl-x
 # https://github.com/junegunn/fzf/pull/1492#issuecomment-461670530
 
@@ -83,7 +83,7 @@ zle -N fzf-history fzf_history
 bindkey "^R" fzf-history
 
 # Scaleway CLI autocomplete initialization.
-eval "$(scw autocomplete script shell=zsh)"
+# eval "$(scw autocomplete script shell=zsh)"
 
 # Assume the argument to be an epoch microsecond, and print the
 # corresponding human readable date.
