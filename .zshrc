@@ -8,6 +8,7 @@ autoload -Uz compinit && compinit
 alias code='open -b com.microsoft.vscode'
 
 alias mr='make-refresh'
+alias mp='make-pr'
 
 alias g=git
 alias gp='git pull'
@@ -18,8 +19,6 @@ alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gc='git add -p && git commit'
 alias gca='git add -p && git commit --amend'
-
-alias logcli-login='source ~/Code/bin/logcli-login-env'
 
 function git-amend () {
     git add -p && git commit --amend --reset-author
@@ -36,6 +35,8 @@ export PGDATA=/opt/homebrew/var/postgresql@12
 export PGHOST=localhost
 export PGUSER=postgres
 export PGDATABASE=postgres
+
+export DOCKER_SCAN_SUGGEST=false
 
 # ente/museum
 export DB_USER=postgres

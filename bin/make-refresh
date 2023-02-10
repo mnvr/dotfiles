@@ -3,9 +3,9 @@
 set -o errexit
 set -o xtrace
 
-mainline=master
+mainline=main
 if ! git branch | grep --fixed "$mainline" > /dev/null; then
-    mainline=main
+    mainline=master
 fi
 
 git checkout "$mainline"
