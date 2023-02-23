@@ -4,7 +4,7 @@ set -o errexit
 
 branch=$(git rev-parse --abbrev-ref HEAD)
 
-if test "$branch" == "main" -o "$branch" == "master"
+if test "$branch" == "main"
 then
     echo "Ignoring attempt to create a PR when on $branch"
     exit 1

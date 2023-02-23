@@ -3,12 +3,7 @@
 set -o errexit
 set -o xtrace
 
-mainline=main
-if ! git branch | grep --fixed "$mainline" > /dev/null; then
-    mainline=master
-fi
-
-git checkout "$mainline"
+git checkout main
 git pull
 git remote prune origin
-git branch --merged | grep -v --fixed "* ${mainline}" | xargs git branch -d
+git branch --merged | grep -v --fixed "* main" | xargs git branch -d

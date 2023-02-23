@@ -27,19 +27,11 @@ function git-amend () {
 export PATH="$PATH:$HOME/Code/flutter/bin"
 export PATH="$PATH":"$HOME/Code/flutter/.pub-cache/bin"
 export PATH="$PATH:$HOME/Code/dotfiles/bin"
-export PATH="$PATH:$HOME/Code/bin"
+export PATH="$PATH:/opt/homebrew/opt/node@18/bin"
 
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
 
-export PGDATA=/opt/homebrew/var/postgresql@12
-export PGHOST=localhost
-export PGUSER=postgres
-export PGDATABASE=postgres
-
 export DOCKER_SCAN_SUGGEST=false
-
-# ente/museum
-export DB_USER=postgres
 
 # History settings --
 
@@ -82,9 +74,6 @@ fzf_history() {
 }
 zle -N fzf-history fzf_history
 bindkey "^R" fzf-history
-
-# Scaleway CLI autocomplete initialization.
-# eval "$(scw autocomplete script shell=zsh)"
 
 # Assume the argument to be an epoch microsecond, and print the
 # corresponding human readable date.
