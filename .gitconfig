@@ -5,5 +5,3 @@
 	defaultBranch = main
 [submodule]
 	recurse = true
-[alias]
-	#amend = commit --amend --reset-author

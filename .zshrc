@@ -5,34 +5,6 @@ PROMPT="%1~$ "
 
 autoload -Uz compinit && compinit
 
-alias code='open -b com.microsoft.vscode'
-
-alias mr='make-refresh'
-alias mp='make-pr'
-
-alias g=git
-alias gp='git pull'
-alias gl='git log'
-alias gs='git status'
-alias gd='git diff'
-alias gco='git checkout'
-alias gcb='git checkout -b'
-alias gc='git add -p && git commit'
-alias gca='git add -p && git commit --amend'
-
-function git-amend () {
-    git add -p && git commit --amend --reset-author
-}
-
-export PATH="$PATH:$HOME/Code/flutter/bin"
-export PATH="$PATH":"$HOME/Code/flutter/.pub-cache/bin"
-export PATH="$PATH:$HOME/Code/dotfiles/bin"
-export PATH="$PATH:/opt/homebrew/opt/node@18/bin"
-
-export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home"
-
-export DOCKER_SCAN_SUGGEST=false
-
 # History settings --
 
 # See `man zshparam` for details about these variables
@@ -57,26 +29,14 @@ alias history="fc -l 1"
 # /opt/homebrew/opt/fzf/install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Immediately execute the command on ctrl-x
-# https://github.com/junegunn/fzf/pull/1492#issuecomment-461670530
+# Aliases ---
 
-fzf_history() {
-  local selected
-  IFS=$'\n' selected=($(fc -lnr 1 | fzf --exact --expect=ctrl-x --no-sort --height=40% --query="$BUFFER"))
-  if [[ "$selected" ]]; then
-    LBUFFER="$selected"
-    if [[ ${#selected[@]} -eq 2 ]]; then
-      LBUFFER="${selected[2]}"
-      zle accept-line
-    fi
-  fi
-  zle reset-prompt
-}
-zle -N fzf-history fzf_history
-bindkey "^R" fzf-history
+alias g=git
+alias gs='git status'
+alias gcb='git checkout -b'
+alias gc='git add -p && git commit'
+alias gca='git add -p && git commit --amend'
 
-# Assume the argument to be an epoch microsecond, and print the
-# corresponding human readable date.
-function epoch() {
-    date -ur "$(echo "$1 / 1000000" | bc)"
-}
+# PATH --
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
