@@ -31,11 +31,19 @@ alias history="fc -l 1"
 
 # Aliases ---
 
-alias g=git
 alias gs='git status'
+alias gd='git diff'
+alias gr='git reset --hard HEAD'
+alias gr1='git reset --hard HEAD~'
+alias gl='git log'
+alias glp='git log -p'
+alias g1='git log -p --stat -1'
 alias gcb='git checkout -b'
-alias gc='git add -p && git commit'
+alias gc-='git checkout -'
+# Include untracked files in the patch by using `--intent-to-add`
+alias gc='git add --intent-to-add . && git add -p && git commit'
 alias gca='git add -p && git commit --amend'
+alias gp='git push'
 
 # PATH --
 
