@@ -33,6 +33,9 @@ alias history="fc -l 1"
 # git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Accept and execute the current suggestion: Ctrl-X
+bindkey '^x' autosuggest-execute
+
 # Faster cd
 #
 # Installation:
