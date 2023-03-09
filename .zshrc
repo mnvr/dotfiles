@@ -61,6 +61,12 @@ alias gc='git add --intent-to-add . && git add -p && git commit'
 alias gca='git add -p && git commit --amend'
 alias gp='git push'
 
+# Functions --
+
+function mcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
 # PATH --
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
