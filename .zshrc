@@ -3,8 +3,6 @@ export VISUAL=emacs
 
 PROMPT="%1~$ "
 
-autoload -Uz compinit && compinit
-
 # History settings --
 
 # See `man zshparam` for details about these variables
@@ -28,6 +26,21 @@ alias history="fc -l 1"
 # brew install fzf
 # /opt/homebrew/opt/fzf/install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Generate suggestions as we type based on history and completions
+#
+# Installation:
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Faster cd
+#
+# Installation:
+# curl -LO --output-dir ~/.zsh https://raw.githubusercontent.com/agkozak/zsh-z/master/zsh-z.plugin.zsh
+source ~/.zsh/zsh-z.plugin.zsh
+
+# Enable completion (after sourcing all plugins)
+autoload -Uz compinit && compinit
 
 # Aliases ---
 
