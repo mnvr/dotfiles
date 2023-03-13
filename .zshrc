@@ -33,6 +33,14 @@ alias history="fc -l 1"
 # git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Default is fg=8, which is hard to differentiate from the regular text when the
+# terminal is using a non-full-saturation color.
+#
+# Change to a more easily distinguishable color.
+# Color list:
+# https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
+
 # Accept and execute the current suggestion: Ctrl-X
 bindkey '^x' autosuggest-execute
 
@@ -53,12 +61,13 @@ alias gr='git reset --hard HEAD'
 alias gr1='git reset --hard HEAD~'
 alias gl='git log'
 alias glp='git log -p'
-alias g1='git log -p --stat -1'
+alias gl1='git log -p --stat -1'
 alias gcb='git checkout -b'
 alias gc-='git checkout -'
 # Include untracked files in the patch by using `--intent-to-add`
 alias gc='git add --intent-to-add . && git add -p && git commit'
-alias gca='git add -p && git commit --amend'
+alias g='git add --intent-to-add . && git add -p && git commit --amend --no-edit'
+alias gca='git add --intent-to-add . && git add -p && git commit --amend'
 alias gp='git push'
 
 # Functions --
