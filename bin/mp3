@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Convert the input WAV into a VBR MP3, adding ID3 tags.
+
+set -o errexit
+
+input="$1"
+
+if test -z "$input"
+then
+    echo "usage: `basename $0` <input-wav-name>"
+    exit 1
+fi
+
+set -o xtrace
+
+# Change file extension from .wav to .mp3
+output="${input%%.*}.mp3"
+
+ffmpeg -i "$input" \
+    -codec:a libmp3lame -qscale:a 2 \
+    -metadata artist="Manav Rathi" -metadata album="mrmr.io" \
+    "$output"

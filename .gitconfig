@@ -1,6 +1,7 @@
 [user]
 	name = Manav
 	email = manav@mrmr.io
+	# email = mnvrth@gmail.com
 [init]
 	defaultBranch = main
 [submodule]
