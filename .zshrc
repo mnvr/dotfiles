@@ -71,6 +71,11 @@ alias gg='git add --intent-to-add . && git add . && git commit --amend --no-edit
 alias gca='git add --intent-to-add . && git add -p && git commit --amend'
 alias gp='git push'
 
+# Hide the configuration options that ffmpeg always prints
+alias ffprobe="ffprobe -hide_banner"
+alias ffplay="ffplay -hide_banner"
+alias ffprobe="ffprobe -hide_banner"
+
 # Functions --
 
 function mcd() {
