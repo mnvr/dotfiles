@@ -66,7 +66,8 @@ alias gcb='git checkout -b'
 alias gc-='git checkout -'
 # Include untracked files in the patch by using `--intent-to-add`
 alias gc='git add --intent-to-add . && git add -p && git commit'
-alias g='git add --intent-to-add . && git add -p && git commit --amend --no-edit'
+# Forgot what this does
+# alias g='git add --intent-to-add . && git add -p && git commit --amend --no-edit'
 alias gg='git add --intent-to-add . && git add . && git commit --amend --no-edit'
 alias gca='git add --intent-to-add . && git add -p && git commit --amend'
 alias gp='git push'
