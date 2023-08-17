@@ -1,0 +1,5 @@
+-- Print type after each evaluation
+:set +t
+
+-- Show loaded modules in the prompt
+:set prompt "%s> "
