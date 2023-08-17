@@ -39,7 +39,7 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Change to a more easily distinguishable color.
 # Color list:
 # https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=4"
 
 # Accept and execute the current suggestion: Ctrl-X
 bindkey '^x' autosuggest-execute
@@ -52,6 +52,19 @@ source ~/.zsh/zsh-z.plugin.zsh
 
 # Enable completion (after sourcing all plugins)
 autoload -Uz compinit && compinit
+
+# Delete till the last slash using ^W
+#
+# We can still delete the full word, i.e. till the previous
+# whitespace, with Opt-Delete.
+
+tcsh-backward-delete-word () {
+    local WORDCHARS="${WORDCHARS:s#/#}"
+    zle backward-delete-word
+}
+
+zle -N tcsh-backward-delete-word
+bindkey '^W' tcsh-backward-delete-word
 
 # Aliases ---
 
