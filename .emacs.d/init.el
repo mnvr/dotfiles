@@ -5,6 +5,9 @@
 ;; Use spaces instead of tabs when indenting
 (setq-default indent-tabs-mode nil)
 
+;; Disable vc and the message about following symbolic links
+(setq vc-handled-backends nil)
+
 ;; M-x sh to open a shell window below
 (defun sh ()
   (interactive)

@@ -100,5 +100,6 @@ function mcd() {
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$PATH:$HOME/.bin"
+# export PATH="$PATH:$HOME/dev/flutter/bin"
 
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
