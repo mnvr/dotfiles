@@ -68,7 +68,7 @@ bindkey '^W' tcsh-backward-delete-word
 
 # Aliases ---
 
-alias gs='git status'
+alias gs='git log --oneline -1 && git status'
 alias gd='git diff'
 alias gr='git reset --hard HEAD'
 alias gr1='git reset --hard HEAD~'
