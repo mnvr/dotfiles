@@ -8,6 +8,9 @@
 ;; Disable vc and the message about following symbolic links
 (setq vc-handled-backends nil)
 
+;; Wrap at 80 characters (instead of the default 72).
+(setq-default fill-column 80)
+
 ;; M-x sh to open a shell window below
 (defun sh ()
   (interactive)
