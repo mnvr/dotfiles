@@ -68,7 +68,10 @@ bindkey '^W' tcsh-backward-delete-word
 
 # Aliases ---
 
-alias gs='git log --oneline -1 && git status'
+# Let the git log fail - this happens in a newly init-ed repo without any
+# commits yet, but the subsequent git status will work fine.
+alias gs='git log --oneline -1; git status'
+
 alias gd='git diff'
 alias gr='git reset --hard HEAD'
 alias gr1='git reset --hard HEAD~'
