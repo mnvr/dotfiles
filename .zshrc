@@ -93,6 +93,9 @@ alias ffprobe="ffprobe -hide_banner"
 alias ffplay="ffplay -hide_banner"
 alias ffprobe="ffprobe -hide_banner"
 
+# Not sure if this is the best way to make python3 the default Python...
+alias python=python3
+
 # Functions --
 
 function mcd() {
