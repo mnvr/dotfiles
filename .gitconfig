@@ -3,3 +3,5 @@
 	email = manav@mrmr.io
 [init]
 	defaultBranch = main
+[push]
+	autoSetupRemote = true
