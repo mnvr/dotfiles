@@ -80,10 +80,9 @@ alias glp='git log --stat -p'
 alias gl1='git log --stat -p -1'
 alias gcb='git checkout -b'
 alias gc-='git checkout -'
+alias gcm='git checkout main'
 # Include untracked files in the patch by using `--intent-to-add`
 alias gc='git add --intent-to-add . && git add -p && git commit'
-# Forgot what this does
-# alias g='git add --intent-to-add . && git add -p && git commit --amend --no-edit'
 alias gg='git add --intent-to-add . && git add . && git commit --amend --no-edit'
 alias gca='git add --intent-to-add . && git add -p && git commit --amend'
 alias gp='git push'
@@ -93,19 +92,7 @@ alias ffprobe="ffprobe -hide_banner"
 alias ffplay="ffplay -hide_banner"
 alias ffprobe="ffprobe -hide_banner"
 
-# Not sure if this is the best way to make python3 the default Python...
-alias python=python3
-
-# Functions --
-
-function mcd() {
-    mkdir -p "$1" && cd "$1"
-}
-
 # PATH --
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$PATH:$HOME/.bin"
-# export PATH="$PATH:$HOME/dev/flutter/bin"
-
-[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env

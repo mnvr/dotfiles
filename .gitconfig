@@ -1,8 +1,5 @@
 [user]
-	name = Manav
+	name = Manav Rathi
 	email = manav@mrmr.io
-	# email = mnvrth@gmail.com
 [init]
 	defaultBranch = main
-[submodule]
-	recurse = true
