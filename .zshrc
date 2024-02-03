@@ -92,6 +92,9 @@ alias ffprobe="ffprobe -hide_banner"
 alias ffplay="ffplay -hide_banner"
 alias ffprobe="ffprobe -hide_banner"
 
+# It boggles me that the people who made the GitHub CLI didn't make this easier
+alias pr='git push && gh pr create --fill --web'
+
 # PATH --
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
