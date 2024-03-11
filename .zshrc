@@ -95,6 +95,13 @@ alias ffprobe="ffprobe -hide_banner"
 # It boggles me that the people who made the GitHub CLI didn't make this easier
 alias mp='git push && gh pr create --fill --web'
 
+# Assume the argument to be an epoch microsecond, and print the corresponding
+# human readable date (first in UTC, then in local TZ)
+function epoch() {
+    date -ur "$(echo "$1 / 1000000" | bc)"
+    date -r "$(echo "$1 / 1000000" | bc)"
+}
+
 # PATH --
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
