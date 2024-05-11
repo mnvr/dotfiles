@@ -66,6 +66,9 @@ tcsh-backward-delete-word () {
 zle -N tcsh-backward-delete-word
 bindkey '^W' tcsh-backward-delete-word
 
+# Do not echo NL after CTRL-C
+stty -echok
+
 # Aliases ---
 
 # Let the git log fail - this happens in a newly init-ed repo without any
@@ -94,6 +97,9 @@ alias ffprobe="ffprobe -hide_banner"
 
 # It boggles me that the people who made the GitHub CLI didn't make this easier
 alias mp='git push && gh pr create --fill --web'
+
+# Faster
+alias d='yarn dev'
 
 # Assume the argument to be an epoch microsecond, and print the corresponding
 # human readable date (first in UTC, then in local TZ)
