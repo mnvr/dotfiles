@@ -66,9 +66,6 @@ tcsh-backward-delete-word () {
 zle -N tcsh-backward-delete-word
 bindkey '^W' tcsh-backward-delete-word
 
-# Do not echo NL after CTRL-C
-stty -echok
-
 # Aliases ---
 
 # Let the git log fail - this happens in a newly init-ed repo without any
