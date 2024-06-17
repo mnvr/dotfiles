@@ -96,11 +96,13 @@ alias ffprobe="ffprobe -hide_banner"
 alias mp='git push && gh pr create --fill --web'
 
 # Faster
+alias c='code .'
 alias d='yarn dev'
+alias lf='yarn lint-fix'
 
 # Assume the argument to be an epoch microsecond, and print the corresponding
 # human readable date (first in UTC, then in local TZ)
-function epoch() {
+function epoch-ms() {
     date -ur "$(echo "$1 / 1000000" | bc)"
     date -r "$(echo "$1 / 1000000" | bc)"
 }
