@@ -96,8 +96,8 @@ alias ffprobe="ffprobe -hide_banner"
 alias mp='git push && gh pr create --fill --web'
 
 # Faster
-alias c='code .'
 alias d='yarn dev'
+alias e='code .'
 alias lf='yarn lint-fix'
 
 # Assume the argument to be an epoch microsecond, and print the corresponding
@@ -105,6 +105,12 @@ alias lf='yarn lint-fix'
 function epoch-ms() {
     date -ur "$(echo "$1 / 1000000" | bc)"
     date -r "$(echo "$1 / 1000000" | bc)"
+}
+
+# Sum all the numbers in a JSON, keeping 7 digits of precision.
+# Useful for comparing epsilon equal data.
+function epsilon-sum() {
+    jq 'reduce (..|.[]?|numbers|.*1e7|round/1e7) as $x (0; .+$x) |.*1e7|round'
 }
 
 # PATH --
