@@ -97,8 +97,11 @@ alias mp='git push && gh pr create --fill --web'
 
 # Faster
 alias d='yarn dev'
-alias e='code .'
 alias lf='yarn lint-fix'
+
+# Open the editor in the provided path, or the current directory if none is
+# provided.
+function e() { test -z "$1" && code . || code "$1" }
 
 # Assume the argument to be an epoch microsecond, and print the corresponding
 # human readable date (first in UTC, then in local TZ)
