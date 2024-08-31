@@ -99,6 +99,9 @@ alias mp='git push && gh pr create --fill --web'
 alias d='yarn dev'
 alias lf='yarn lint-fix'
 
+# mkdir && cd
+function mcd () { mkdir -p "$1" && cd "$1" }
+
 # Open the editor in the provided path, or the current directory if none is
 # provided.
 function e() { test -z "$1" && code . || code "$1" }
