@@ -80,11 +80,12 @@ alias glp='git log --stat -p'
 alias gl1='git log --stat -p -1'
 alias gcb='git checkout -b'
 alias gc-='git checkout -'
-alias gcm='git checkout main'
+alias gbm='git branch --move'
 # Include untracked files in the patch by using `--intent-to-add`
 alias gc='git add --intent-to-add . && git add -p && git commit'
 alias gg='git add --intent-to-add . && git add . && git commit --amend --no-edit'
-alias gca='git add --intent-to-add . && git add -p && git commit --amend'
+alias gca='gc --amend'
+alias gcm='gc -m'
 alias gp='git push'
 
 # Hide the configuration options that ffmpeg always prints
