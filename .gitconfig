@@ -1,6 +1,6 @@
 [user]
 	name = Manav Rathi
-	email = manav@mrmr.io
+	email = manav@mnvr.in
 	signingkey = /Users/m/.ssh/id_ed25519.pub
 [init]
 	defaultBranch = main
