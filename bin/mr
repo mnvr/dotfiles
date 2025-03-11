@@ -5,5 +5,4 @@ set -o xtrace
 
 git checkout main
 git pull
-git remote prune origin
 git branch --merged | grep -v --fixed "* main" | xargs git branch -d

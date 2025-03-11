@@ -10,3 +10,6 @@
 	format = ssh
 [commit]
 	gpgsign = true
+[fetch]
+	prune = true
+	pruneTags = true
