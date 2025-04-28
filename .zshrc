@@ -26,6 +26,7 @@ alias history="fc -l 1"
 # brew install fzf
 # /opt/homebrew/opt/fzf/install
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS="--height 14"
 
 # Generate suggestions as we type based on history and completions
 #
@@ -68,33 +69,35 @@ bindkey '^W' tcsh-backward-delete-word
 
 # Aliases ---
 
-# Let the git log fail - this happens in a newly init-ed repo without any
-# commits yet, but the subsequent git status will work fine.
-alias gs='git log --oneline -1; git status'
+function gs () { git log --oneline -1 && git status }
 
 alias gd='git diff'
 alias gr='git reset --hard HEAD'
-alias gr1='git reset --hard HEAD~'
 alias gl='git log --stat'
 alias glp='git log --stat -p'
 alias gl1='git log --stat -p -1'
 alias gcb='git checkout -b'
 alias gc-='git checkout -'
-alias gbm='git branch --move'
 # Include untracked files in the patch by using `--intent-to-add`
 alias gc='git add --intent-to-add . && git add -p && git commit'
 alias gg='git add --intent-to-add . && git add . && git commit --amend --no-edit'
 alias gca='gc --amend'
-alias gcm='gc -m'
 alias gp='git push'
 
 # Hide the configuration options that ffmpeg always prints
 alias ffprobe="ffprobe -hide_banner"
 alias ffplay="ffplay -hide_banner"
-alias ffprobe="ffprobe -hide_banner"
+alias ffmpeg="ffmpeg -hide_banner"
 
 # It boggles me that the people who made the GitHub CLI didn't make this easier
 alias mp='git push && gh pr create --fill --web'
+
+# make-refresh
+function mr () {
+   git checkout main && \
+     git pull && \
+     git branch --merged | grep -v --fixed "* main" | xargs git branch -d
+}
 
 # Faster
 alias d='yarn dev'
@@ -114,14 +117,7 @@ function epoch-ms() {
     date -r "$(echo "$1 / 1000000" | bc)"
 }
 
-# Sum all the numbers in a JSON, keeping 7 digits of precision.
-# Useful for comparing epsilon equal data.
-function epsilon-sum() {
-    jq 'reduce (..|.[]?|numbers|.*1e7|round/1e7) as $x (0; .+$x) |.*1e7|round'
-}
-
 # PATH --
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="$PATH:$HOME/.bin"
 export PATH="$PATH:$HOME/.docker/bin"

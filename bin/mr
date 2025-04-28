@@ -1,8 +1,0 @@
-#!/bin/sh
-
-set -o errexit
-set -o xtrace
-
-git checkout main
-git pull
-git branch --merged | grep -v --fixed "* main" | xargs git branch -d
