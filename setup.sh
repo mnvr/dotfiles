@@ -16,3 +16,6 @@ cd ../..
 
 # TextEdit open blank document (Requires logout)
 defaults write com.apple.TextEdit NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
+
+# Breaks emacs set-mark-command
+echo "TODO: Disable Ctrl-SPC in Keyboard > Shortcuts > Input Sources"
