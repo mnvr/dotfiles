@@ -1,0 +1,27 @@
+#!/bin/sh
+
+d=$(basename `pwd`)
+
+set -o errexit
+set -o xtrace
+
+test -f ../edk2-aarch64-code.fd || cp `brew --prefix qemu`/share/qemu/edk2-aarch64-code.fd ..
+test -f edk2-arm-vars.fd || cp `brew --prefix qemu`/share/qemu/edk2-arm-vars.fd .
+test -f disk.qcow2 || qemu-img create -f qcow2 disk.qcow2 40G
+
+qemu-system-aarch64 \
+  -machine virt \
+  -cpu host \
+  -accel hvf \
+  -m 2G \
+  -drive file=../edk2-aarch64-code.fd,if=pflash,format=raw,readonly=on \
+  -drive file=edk2-arm-vars.fd,if=pflash,format=raw \
+  -drive file=disk.qcow2,if=virtio,format=qcow2 \
+  -audio coreaudio,model=virtio \
+  -monitor none -parallel none \
+  -device virtio-gpu \
+  -device qemu-xhci \
+  -device usb-kbd \
+  -device usb-tablet \
+  -name "$d" \
+  $*
