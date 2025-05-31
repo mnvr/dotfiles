@@ -6,7 +6,10 @@ set -o xtrace
 
 d=$(pwd)
 cd ~
-if test `uname` = "Darwin"
+if test `uname` = "Linux"
+then
+    ln -s "$d/linux/.gitconfig"
+elif test `uname` = "Darwin"
 then
     rm -f .zshrc && ln -s "$d/.zshrc"
     rm -f .gitconfig && ln -s "$d/.gitconfig"
@@ -21,7 +24,4 @@ then
 
     # Breaks emacs set-mark-command
     echo "TODO: Disable Ctrl-SPC in Keyboard > Shortcuts > Input Sources"
-elif test `uname` = "Linux"
-then
-    ln -s "$d/.gitconfig"
 fi
