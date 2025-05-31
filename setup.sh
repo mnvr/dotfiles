@@ -9,6 +9,8 @@ cd ~
 if test `uname` = "Linux"
 then
     ln -s "$d/linux/.gitconfig"
+    ln -s "$d/linux/.profile"
+    ln -s "$d/linux/.ashrc"    
 elif test `uname` = "Darwin"
 then
     rm -f .zshrc && ln -s "$d/.zshrc"
