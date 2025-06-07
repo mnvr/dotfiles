@@ -4,10 +4,14 @@ set -o errexit
 set -o xtrace
 
 test -f ../edk2-aarch64-code.fd || cp `brew --prefix qemu`/share/qemu/edk2-aarch64-code.fd ..
+test -f edk2-arm-vars.fd || cp `brew --prefix qemu`/share/qemu/edk2-arm-vars.fd .
 test -f disk.qcow2 || qemu-img create -f qcow2 disk.qcow2 40G
 
 # in guest: mkdir /mnt/share && mount -t 9p -o trans=virtio m0 /mnt/share
 test -d share && share="-virtfs local,path=share,mount_tag=m0,security_model=mapped-file,readonly=on"
+
+# doesn't persist boot settings currently
+#  -device uefi-vars-sysbus,jsonfile=uefi.json \
 
 qemu-system-aarch64 \
   -machine virt \
@@ -15,7 +19,7 @@ qemu-system-aarch64 \
   -accel hvf \
   -m 2G \
   -drive file=../edk2-aarch64-code.fd,if=pflash,format=raw,readonly=on \
-  -device uefi-vars-sysbus,jsonfile=uefi.json \
+  -drive file=edk2-arm-vars.fd,if=pflash,format=raw \
   -drive file=disk.qcow2,if=virtio,format=qcow2 \
   -display cocoa,full-screen=on \
   -audio coreaudio,model=virtio \
