@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -o errexit
-set -o xtrace
+# set -o xtrace
 
 test -f ../edk2-aarch64-code.fd || cp `brew --prefix qemu`/share/qemu/edk2-aarch64-code.fd ..
 test -f edk2-arm-vars.fd || cp `brew --prefix qemu`/share/qemu/edk2-arm-vars.fd .
@@ -22,7 +22,7 @@ qemu-system-aarch64 \
   -drive file=edk2-arm-vars.fd,if=pflash,format=raw \
   -drive file=disk.qcow2,if=virtio,format=qcow2 \
   -display cocoa,full-screen=on \
-  -audio coreaudio,model=virtio \
+  -device virtio-sound-pci,audiodev=a0,streams=1 -audiodev coreaudio,id=a0 \
   -monitor none -parallel none \
   -device virtio-gpu \
   -device qemu-xhci \
