@@ -7,6 +7,6 @@
 [commit]
 	gpgsign = true
 [credential]
-	helper = /usr/libexec/git-core/git-credential-libsecret
+	helper = store
 [init]
 	defaultBranch = main
