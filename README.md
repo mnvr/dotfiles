@@ -1,1 +1,1 @@
-Less is more
+.f

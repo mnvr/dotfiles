@@ -4,7 +4,8 @@ set -o errexit
 set -o nounset
 set -o xtrace
 
-doas apk add docs coreutils curl jq
+doas apk add docs mandoc-apropos
+doas apk add git zsh file coreutils curl jq
 
 d=`pwd`
 link () {
