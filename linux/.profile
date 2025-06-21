@@ -1,1 +1,1 @@
-export ENV=$HOME/.ashrc ash
+export ENV=$HOME/.ashrc
