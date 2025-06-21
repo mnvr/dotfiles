@@ -6,8 +6,13 @@ set -o xtrace
 
 doas apk add docs coreutils curl jq
 
-d=$(pwd)
-cd ~
-ln -s "$d/.gitconfig"
-ln -s "$d/.profile"
-ln -s "$d/.ashrc"    
+d=`pwd`
+link () {
+    cd ~/`dirname $1`
+    ln -s "$d/$1" || readlink "$1"
+}
+
+link .gitconfig
+link .profile
+link .ashrc
+link .emacs.d/init.el
