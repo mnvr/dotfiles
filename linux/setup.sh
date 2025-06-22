@@ -14,6 +14,5 @@ link () {
 }
 
 link .gitconfig
-link .profile
-link .ashrc
+link .zshrc
 link .emacs.d/init.el

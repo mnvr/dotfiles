@@ -7,6 +7,12 @@ sh setup.sh
 sh config.sh
 ```
 
+Out of band setup.
+
 ```sh
 doas apk add openssh-keygen && ls ~/.ssh/id_ed* # ensure keys
 ```
+
+Documentation accompanying this configuration:
+
+* [mnvr.in/mars](https//mnvr.in/mars/)
