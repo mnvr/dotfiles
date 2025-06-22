@@ -5,7 +5,7 @@ set -o nounset
 set -o xtrace
 
 doas apk add docs mandoc-apropos
-doas apk add git zsh file coreutils curl jq
+doas apk add git zsh file coreutils less curl jq
 
 d=`pwd`
 link () {
