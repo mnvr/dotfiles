@@ -17,3 +17,7 @@ xfconf-query -c keyboard-layout -np /Default/XkbVariant -t string -s dvorak
 
 # Terminal: "Disable all menu access keys (such as Alt + f)"
 xfconf-query -c xfce4-terminal -np /shortcuts-no-mnemonics -t bool -s true
+# Terminal: Disable "Show unsafe paste dialog"
+xfconf-query -c xfce4-terminal -np /misc-show-unsafe-paste-dialog -t bool -s false
+# Terminal: Width and height
+xfconf-query -c xfce4-terminal -np /misc-default-geometry -t string -s '81x24'
