@@ -7,12 +7,22 @@ sh setup.sh
 sh config.sh
 ```
 
-Out of band setup.
+Documentation accompanying this configuration:
+[mnvr.in/mars](https//mnvr.in/mars/)
+
+### Manual setup
+
+Ensure signing keys.
 
 ```sh
-doas apk add openssh-keygen && ls ~/.ssh/id_ed* # ensure keys
+doas apk add openssh-keygen && ls ~/.ssh/id_ed*
 ```
 
-Documentation accompanying this configuration:
+Font.
 
-* [mnvr.in/mars](https//mnvr.in/mars/)
+```sh
+wget FiraCode-latest.zip
+unzip FiraCode*.zip
+mkdir ~/.local/share/fonts/FiraCode
+mv ttf ~/.local/share/fonts/FiraCode
+```
