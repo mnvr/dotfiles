@@ -34,6 +34,8 @@ xfconf-query -c xfce4-terminal -np /misc-show-unsafe-paste-dialog -t bool -s fal
 xfconf-query -c xfce4-terminal -np /misc-default-geometry -t string -s 90x24
 # Use system font
 xfconf-query -c xfce4-terminal -np /font-use-system -t bool -s true
+# Use system theme
+xfconf-query -c xfce4-terminal -np /color-use-theme -t bool -s true
 # Increase line height
 xfconf-query -c xfce4-terminal -np /cell-height-scale -t double -s 1.1
 # Disable scrollbar

@@ -8,7 +8,7 @@ sh config.sh
 ```
 
 Documentation accompanying this configuration:
-[mnvr.in/mars](https//mnvr.in/mars/)
+[mnvr.in/mars](https://mnvr.in/mars/)
 
 ### Manual setup
 
