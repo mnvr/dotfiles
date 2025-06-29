@@ -12,7 +12,12 @@ HISTSIZE=999999999
 SAVEHIST=999999999
 
 # Enable the new compsys completion system.
-autoload -U compinit; compinit
+#
+# Give it an explicit path to a file to use as a cache/dump, otherwise it
+# creates one in ~/.zcompdump.
+autoload -U compinit
+mkdir -p ~/.cache/zsh
+compinit -d ~/.cache/zsh/zcompdump
 
 # Set the PROMPT (left and right).
 PROMPT='%~$ '; RPROMPT='%(?..%?)%(1j. %j.)'
