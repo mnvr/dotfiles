@@ -16,4 +16,4 @@ link () {
 
 link .gitconfig
 link .zshrc
-link .emacs.d/init.el
+mkdir ~/.emacs.d && link .emacs.d/init.el
