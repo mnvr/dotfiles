@@ -4,7 +4,6 @@ Last used with Alpine Linux.
 git clone https://github.com/mnvr/dotfiles
 cd dotfiles/linux
 sh setup.sh
-sh config.sh
 ```
 
 Documentation accompanying this configuration:
@@ -18,11 +17,3 @@ Ensure signing keys.
 doas apk add openssh-keygen && ls ~/.ssh/id_ed*
 ```
 
-Font.
-
-```sh
-wget FiraCode-latest.zip
-unzip FiraCode*.zip
-mkdir ~/.local/share/fonts/FiraCode
-mv ttf ~/.local/share/fonts/FiraCode
-```
