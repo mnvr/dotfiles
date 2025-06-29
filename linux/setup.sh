@@ -6,6 +6,7 @@ set -o xtrace
 
 doas apk add docs mandoc-apropos
 doas apk add git zsh file coreutils less curl jq
+doas apk add adwaita-xfce-icon-theme adw-gtk3
 
 d=`pwd`
 link () {
