@@ -44,7 +44,7 @@ xfconf-query -c xfce4-terminal -np /scrolling-bar -t string -s TERMINAL_SCROLLBA
 xfconf-query -c xfwm4 -p /general/workspace_count -n -t int -ns 1
 # [Workspaces > Margins] Add margins to screen edges
 xfconf-query -c xfwm4 -p /general/margin_top -n -t int -ns 20
-xfconf-query -c xfwm4 -p /general/margin_bottom -n -t int -ns 30
+xfconf-query -c xfwm4 -p /general/margin_bottom -n -t int -ns 60
 xfconf-query -c xfwm4 -p /general/margin_left -n -t int -ns 10
 xfconf-query -c xfwm4 -p /general/margin_right -n -t int -ns 10
 
@@ -71,7 +71,9 @@ xfconf-query -c xsettings -p /Xfce/SyncThemes -t bool -ns true
 
 # [Panel > Appearance]
 # Make panel follow system theme by disabling "Dark mode"
-xfconf-query -c xfce4-panel -p /panels/dark-mode -t bool -ns false
+#
+# Commented, since we replace the entire panel XML.
+# xfconf-query -c xfce4-panel -p /panels/dark-mode -t bool -ns false
 
 # [Desktop > Desktop Icons] Icon type: None
 xfconf-query -c xfce4-desktop -p /desktop-icons/style -t int -ns 0
