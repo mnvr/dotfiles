@@ -15,6 +15,9 @@ xfconf-query -c keyboard-layout -np /Default/XkbDisable -t bool -s false
 xfconf-query -c keyboard-layout -np /Default/XkbLayout  -t string -s us
 xfconf-query -c keyboard-layout -np /Default/XkbVariant -t string -s dvorak
 
+# [Keyboard > Layout] Right "win" as Compose
+xfconf-query -c keyboard-layout -p /Default/XkbOptions/Compose -t string -ns compose:rwin
+
 # [Appearance > Fonts] Default
 fc-list -q 'Adwaita Sans' && \
     xfconf-query -c xsettings -np /Gtk/FontName -t string -s 'Adwaita Sans 10'
