@@ -90,6 +90,8 @@ xfconf-query -c xfce4-appfinder -p /sort-by-frecency -t bool -ns true
 xfconf-query -c xfce4-appfinder -p /icon-view -t bool -ns true
 xfconf-query -c xfce4-appfinder -p /text-beside-icons -t bool -ns true
 xfconf-query -c xfce4-appfinder -p /remember-category -t bool -ns true
-xfconf-query -c xfce4-appfinder -p /close-on-focus-lost -t bool -ns true
 xfconf-query -c xfce4-appfinder -p /always-center -t bool -ns false
 xfconf-query -c xfce4-appfinder -p /hide-category-pane -t bool -ns false
+
+# Screensaver: Disable screen lock when the screensaver becomes active
+xfconf-query -c xfce4-screensaver -p /lock/saver-activation/enabled -t bool -ns false

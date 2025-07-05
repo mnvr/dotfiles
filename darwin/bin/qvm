@@ -25,6 +25,7 @@ qemu-system-aarch64 \
   -device virtio-sound-pci,audiodev=a0,streams=1 -audiodev coreaudio,id=a0 \
   -monitor none -parallel none \
   -device virtio-gpu \
+  -device virtio-rng-pci \
   -device qemu-xhci \
   -device usb-kbd \
   -device usb-tablet \
