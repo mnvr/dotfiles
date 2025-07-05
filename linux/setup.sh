@@ -37,6 +37,14 @@ then
     rm -rf /tmp/fira
 fi
 
+# Autologin
+
+test -f /etc/lightdm/lightdm.conf.d/50-autologin.conf || \
+echo | doas install -D -m 644 /dev/stdin /etc/lightdm/lightdm.conf.d/50-autologin.conf <<EOF
+[Seat:*]
+autologin-user=$(whoami)
+EOF
+
 # Modify Xfce and friends ---
 
 sh config.sh
