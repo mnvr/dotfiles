@@ -41,6 +41,5 @@ fi
 
 sh config.sh
 
-cd ~/.config/xfce4/xfconf/xfce-perchannel-xml
-readlink xfce4-panel.xml || ln -sf "$d/share/xfce4-panel.xml"
-cd -
+# A symlink doesn't work, copy the file.
+cp share/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml

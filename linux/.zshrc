@@ -20,7 +20,7 @@ mkdir -p ~/.cache/zsh
 compinit -d ~/.cache/zsh/zcompdump
 
 # Set the PROMPT (left and right).
-PROMPT='%~$ '; RPROMPT='%(?..%?)%(1j. %j.)'
+PROMPT='%~$ '; RPROMPT='%(?..%?-)%(1j. %j.)'
 
 # Provide a definition for the special hook function, chpwd, which the shell
 # runs whenever the directory changes, and use it to pass the current directory

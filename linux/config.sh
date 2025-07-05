@@ -4,7 +4,7 @@ set -o errexit
 set -o nounset
 set -o xtrace
 
-# Version control ~/.config (Not really useful, too much arbit there)
+# Version control ~/.config (Not really useful, too much arbitrary stuff there)
 cd ~/.config
 if ! test -d .git; then
   git init && git add . && git commit -m init
@@ -15,7 +15,7 @@ xfconf-query -c keyboard-layout -np /Default/XkbDisable -t bool -s false
 xfconf-query -c keyboard-layout -np /Default/XkbLayout  -t string -s us
 xfconf-query -c keyboard-layout -np /Default/XkbVariant -t string -s dvorak
 
-# [Keyboard > Layout] Right "win" as Compose
+# [Keyboard > Layout] Right "Command" / "Win" as Compose
 xfconf-query -c keyboard-layout -p /Default/XkbOptions/Compose -t string -ns compose:rwin
 
 # [Appearance > Fonts] Default
@@ -43,8 +43,8 @@ xfconf-query -c xfce4-terminal -np /scrolling-bar -t string -s TERMINAL_SCROLLBA
 # [Workspaces] Count 4 => 1
 xfconf-query -c xfwm4 -p /general/workspace_count -n -t int -ns 1
 # [Workspaces > Margins] Add margins to screen edges
-xfconf-query -c xfwm4 -p /general/margin_top -n -t int -ns 20
-xfconf-query -c xfwm4 -p /general/margin_bottom -n -t int -ns 60
+xfconf-query -c xfwm4 -p /general/margin_top -n -t int -ns 10
+xfconf-query -c xfwm4 -p /general/margin_bottom -n -t int -ns 55
 xfconf-query -c xfwm4 -p /general/margin_left -n -t int -ns 10
 xfconf-query -c xfwm4 -p /general/margin_right -n -t int -ns 10
 
@@ -75,8 +75,14 @@ xfconf-query -c xsettings -p /Xfce/SyncThemes -t bool -ns true
 # Commented, since we replace the entire panel XML.
 # xfconf-query -c xfce4-panel -p /panels/dark-mode -t bool -ns false
 
+# [Session and Startup > "Automatically save session on logout"
+xfconf-query -c xfce4-session -p /general/SaveOnExit -t bool -ns true
+
 # [Desktop > Desktop Icons] Icon type: None
 xfconf-query -c xfce4-desktop -p /desktop-icons/style -t int -ns 0
+
+# App Finder - Remap Super-R to launch in expanded mode
+xfconf-query -c xfce4-keyboard-shortcuts -p '/commands/custom/<Super>r' -t string -ns 'xfce4-appfinder'
 
 # App Finder - Various tweaks
 xfconf-query -c xfce4-appfinder -p /single-click-execute -t bool -ns true
