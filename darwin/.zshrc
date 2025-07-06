@@ -1,5 +1,5 @@
-export EDITOR=emacs
-export VISUAL=emacs
+export EDITOR=hx
+export VISUAL=hx
 
 PROMPT="%1~$ "
 
