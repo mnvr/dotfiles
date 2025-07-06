@@ -9,18 +9,21 @@ set -o xtrace
 doas apk add docs mandoc-apropos
 doas apk add git zsh file coreutils less curl jq
 doas apk add adwaita-xfce-icon-theme adw-gtk3
+doas apk add helix
 
 # Link config
 
 d=`pwd`
 link () {
+    mkdir -p ~/`dirname $1`
     cd ~/`dirname $1`
     ln -s "$d/$1" || readlink `basename $1`
 }
 
 link .gitconfig
 link .zshrc
-mkdir -p ~/.emacs.d && link .emacs.d/init.el
+link .config/helix/config.toml
+link .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 
 cd "$d"
 
@@ -55,8 +58,3 @@ fi
 
 # Modify Xfce and friends
 sh config.sh
-
-# Modify the panel
-#
-# A symlink doesn't work since we git-ted it, copy the file.
-cp share/xfce4-panel.xml ~/.config/xfce4/xfconf/xfce-perchannel-xml

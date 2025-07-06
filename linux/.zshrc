@@ -1,7 +1,7 @@
 # This script is sourced by zsh(1) each time it runs "interactively".
 
-# Use Emacs as the editor when the need arises (e.g. git commit messages).
-export EDITOR=emacs
+# Use Helix as the editor when the need arises (e.g. git commit messages).
+export EDITOR=hx
 
 # Save history.
 #
@@ -20,7 +20,10 @@ mkdir -p ~/.cache/zsh
 compinit -d ~/.cache/zsh/zcompdump
 
 # Set the PROMPT (left and right).
-PROMPT='%~$ '; RPROMPT='%(?..%?-)%(1j. %j.)'
+#
+# - Left prompt shows the abbreviated directory.
+# - Right prompt shows the last-exit! (if nonzero) and job count (if nonzero).
+PROMPT='%~$ '; RPROMPT='%(?..%?!)%(1j. %j.)'
 
 # Provide a definition for the special hook function, chpwd, which the shell
 # runs whenever the directory changes, and use it to pass the current directory

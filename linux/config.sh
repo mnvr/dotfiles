@@ -7,8 +7,13 @@ set -o xtrace
 # Version control ~/.config (Not really useful, too much arbitrary stuff there)
 cd ~/.config
 if ! test -d .git; then
+  echo helix/config.toml >>.gitignore
+  echo xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml >>.gitignore
   git init && git add . && git commit -m init
 fi
+
+# Allow running xfconf-query from a separate TTY (as long as lightdm is up).
+xfconf-query () { dbus-launch xfconf-query $* ; }
 
 # Keyboard layout: Dvorak
 xfconf-query -c keyboard-layout -np /Default/XkbDisable -t bool -s false
@@ -21,6 +26,7 @@ xfconf-query -c keyboard-layout -p /Default/XkbOptions/Compose -t string -ns com
 # [Appearance > Fonts] Default
 fc-list -q 'Adwaita Sans' && \
     xfconf-query -c xsettings -np /Gtk/FontName -t string -s 'Adwaita Sans 10'
+
 # [Appearance > Fonts] Default monospace
 fc-list -q 'Fira Code' && \
     xfconf-query -c xsettings -np /Gtk/MonospaceFontName -t string -s 'Fira Code 10'
@@ -59,8 +65,14 @@ xfconf-query -c xfwm4 -p /general/cycle_preview -n -t bool -s false
 
 # [Appearance > Style]
 # Use Adwaita light GTK theme (requires `apk add adw-gtk3`)
+#
+# The correct value for the light theme is adw-gtk3, but for some reason Xfce
+# as of 4.20 uses the dark mode if we do that. Using any other value, like
+# adw-gtk, works.
 apk info -e adw-gtk3 && \
-    xfconf-query -c xsettings -p /Net/ThemeName -t string -ns adw-gtk3
+    xfconf-query -c xsettings -p /Net/ThemeName -t string -ns adw-gtk
+    # xfconf-query -c xsettings -p /Net/ThemeName -t string -ns adw-gtk3
+
 # [Appearance > Icons]
 # Use Adwaita Xfce icons them (requires `apk add adwaita-xfce-icon-theme`)
 apk info -e adwaita-xfce-icon-theme && \
