@@ -6,8 +6,8 @@
     <value type="int" value="1"/>
     <property name="dark-mode" type="bool" value="false"/>
     <property name="panel-1" type="empty">
-      <property name="position" type="string" value="p=0;x=722;y=872"/>
-      <property name="length" type="double" value="88"/>
+      <property name="position" type="string" value="p=8;x=633;y=883"/>
+      <property name="length" type="double" value="100"/>
       <property name="position-locked" type="bool" value="true"/>
       <property name="icon-size" type="uint" value="0"/>
       <property name="size" type="uint" value="32"/>
@@ -28,7 +28,7 @@
       </property>
       <property name="background-style" type="uint" value="0"/>
       <property name="border-width" type="uint" value="0"/>
-      <property name="length-adjust" type="bool" value="false"/>
+      <property name="length-adjust" type="bool" value="true"/>
       <property name="nrows" type="uint" value="1"/>
       <property name="mode" type="uint" value="0"/>
     </property>
@@ -66,7 +66,7 @@
         <value type="string" value="-logout-dialog"/>
       </property>
       <property name="button-title" type="uint" value="3"/>
-      <property name="custom-title" type="string" value="—"/>
+      <property name="custom-title" type="string" value="•"/>
     </property>
     <property name="plugin-5" type="string" value="showdesktop"/>
     <property name="plugin-6" type="string" value="clock">
