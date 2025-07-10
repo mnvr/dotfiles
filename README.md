@@ -1,5 +1,12 @@
-Sometimes I want to change myself to fit the world; sometimes I change the world
-to befit me. This repository is older than it looks – in the past I've force
-pushed to start with a clean slate, reset my mis-takes. Now, I just let them be.
+Sometimes I change myself to fit the world; sometimes the world to fit me.
 
-— Manav
+## Setup
+
+Last used with Alpine Linux.
+
+```sh
+git clone https://github.com/mnvr/dotfiles
+cd dotfiles
+sh setup.sh
+cat setup-notes.md
+```
