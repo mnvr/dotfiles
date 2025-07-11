@@ -24,11 +24,16 @@ xfconf-query -c keyboard-layout -np /Default/XkbVariant -t string -s dvorak
 xfconf-query -c keyboard-layout -p /Default/XkbOptions/Compose -t string -ns compose:rwin
 
 # [Appearance > Fonts] Default
+#
+# Preflight check to avoid occasional flaky xfconf behaviour of mangling the
+# font value when setting the font to the same value as it already has.
 fc-list -q 'Adwaita Sans' && \
+    test "$(xfconf-query -c xsettings -p /Gtk/FontName)" != 'Adwaita Sans 10' && \
     xfconf-query -c xsettings -np /Gtk/FontName -t string -s 'Adwaita Sans 10'
 
 # [Appearance > Fonts] Default monospace
 fc-list -q 'Fira Code' && \
+    test "$(xfconf-query -c xsettings -p /Gtk/MonospaceFontName)" != 'Fira Code 10' && \
     xfconf-query -c xsettings -np /Gtk/MonospaceFontName -t string -s 'Fira Code 10'
 
 # [Terminal] "Disable all menu access keys (such as Alt + f)"

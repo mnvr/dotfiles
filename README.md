@@ -8,5 +8,6 @@ Last used with Alpine Linux.
 git clone https://github.com/mnvr/dotfiles
 cd dotfiles
 sh setup.sh
-cat setup-notes.md
 ```
+
+[Notes](setup-notes.md)

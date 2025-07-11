@@ -8,6 +8,7 @@ set -o xtrace
 
 doas apk add docs mandoc-apropos
 doas apk add git zsh file coreutils less curl jq
+doas apk add openssh-keygen openssh-client-common openssh-doc
 doas apk add adwaita-xfce-icon-theme adw-gtk3
 doas apk add helix
 
@@ -21,14 +22,16 @@ link () {
 }
 
 link .gitconfig
+link .zprofile
 link .zshrc
 link .config/helix/config.toml
-link .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 
 cd "$d"
 
-# Install fonts
+# Change shell to zsh
+test "$SHELL" = "`which zsh`" || chsh -s `which zsh`
 
+# Install fonts
 if ! test -d ~/.local/share/fonts/FiraCode
 then
     mkdir /tmp/fira && cd /tmp/fira
@@ -58,3 +61,9 @@ fi
 
 # Modify Xfce and friends
 sh config.sh
+
+# The panel XML doesn't quite work as a symlink; xfconf seems to create a copy
+# on write, and it currently insists on writing (replacing some paths in it).
+test -f ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml || \
+cp .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml \
+ ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
