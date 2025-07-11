@@ -32,3 +32,10 @@ PROMPT='%~$ '; RPROMPT='%(?..%?!)%(1j. %j.)'
 # Also run the function once on startup to set the initial value.
 chpwd () { test -t 1 && case $TERM in; *xterm*) print -Pn "\e]2;%~\a";; esac }
 chpwd
+
+# Ask less to behave like more for files smaller than a screenful. The -R is to
+# get colors to show, e.g.
+#
+#     printf "\033[31mHello\033[0m\n" | less
+#
+export LESS="-FXR"
