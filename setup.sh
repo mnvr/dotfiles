@@ -8,7 +8,7 @@ set -o xtrace
 
 doas apk add docs mandoc-apropos
 doas apk add git zsh file coreutils less curl jq
-doas apk add openssh-keygen openssh-client-common openssh-doc
+doas apk add openssh-client openssh-keygen openssh-client-common openssh-doc
 doas apk add adwaita-xfce-icon-theme adw-gtk3
 doas apk add helix
 
